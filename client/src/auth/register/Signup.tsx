@@ -21,7 +21,7 @@ export function Signup() {
       password2,
     })
       .then(() => history.push('/login'))
-      .catch((errors) => setErrors(errors.response.data));
+      .catch(errors => setErrors(errors.response.data));
   }
 
   return (
