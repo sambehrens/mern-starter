@@ -1,4 +1,4 @@
-# Mern Starter Project 
+# Mern Starter Project
 
 This should provide you with a working app with auth and theming all set up.
 
@@ -10,7 +10,7 @@ If you do find a problem, please submit an issue.
 
 ## Stack
 
-*in no particular order*
+_in no particular order_
 
 - TypeScript - All client code is written in TypeScript.
 - React - The client code is written in the React.js framework.
@@ -64,7 +64,7 @@ module.exports = {
 
 ### Add AWS Credentials
 
-*for SES*
+_for SES_
 
 Add `credentials` file in `~/.aws` with these contents:
 

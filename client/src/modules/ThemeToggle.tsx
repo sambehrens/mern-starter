@@ -8,8 +8,7 @@ export function ThemeToggle() {
   function handleThemeToggle() {
     if (theme === ThemeKey.light) {
       setTheme(ThemeKey.dark);
-    }
-    else {
+    } else {
       setTheme(ThemeKey.light);
     }
   }

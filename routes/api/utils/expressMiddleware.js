@@ -5,7 +5,7 @@ const keys = require('../../../config/keys');
  * Restricts the given access levels from using the api.
  * @param {string[]} restrictedAccessLevels The array of restricted access levels.
  */
-const restrictAccess = function(restrictedAccessLevels = []) {
+const restrictAccess = function (restrictedAccessLevels = []) {
   return (req, res, next) => {
     const validAccessLevels = ['Admin', 'User'];
     if (!validAccessLevels.includes(req.user.accessLevel)) {
@@ -20,13 +20,13 @@ const restrictAccess = function(restrictedAccessLevels = []) {
   };
 };
 
-const removeFieldsFromResponse = function(fields = []) {
+const removeFieldsFromResponse = function (fields = []) {
   return (req, res, next) => {
     if (req.user.accessLevel !== 'Admin') {
       if (Array.isArray(req.doc)) {
-        req.doc.forEach(doc => fields.forEach(field => (doc[field] = null)));
+        req.doc.forEach((doc) => fields.forEach((field) => (doc[field] = null)));
       } else {
-        fields.forEach(field => (req.doc[field] = null));
+        fields.forEach((field) => (req.doc[field] = null));
       }
     }
     next();

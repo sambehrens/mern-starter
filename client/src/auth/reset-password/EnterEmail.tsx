@@ -48,7 +48,7 @@ export function EnterEmail() {
               autoComplete={'username'}
             />
             <div>{errors.error}</div>
-            <input type={'submit'} value={'Send email'}/>
+            <input type={'submit'} value={'Send email'} />
           </form>
         )}
       </div>

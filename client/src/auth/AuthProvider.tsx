@@ -93,8 +93,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   React.useEffect(() => {
     if (userId) {
       getUser(userId)
-        .then(response => setLoggedInUser(response.data))
-        .catch(error => console.log(error));
+        .then((response) => setLoggedInUser(response.data))
+        .catch((error) => console.log(error));
     }
   }, [userId]);
 

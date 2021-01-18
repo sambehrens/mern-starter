@@ -20,5 +20,5 @@ declare module 'styled-components' {
 }
 
 declare module 'jwt-decode' {
-  export default function jwtDecode(token: string, options?: JwtDecodeOptions): {userId?: string; exp: number};
+  export default function jwtDecode(token: string, options?: JwtDecodeOptions): { userId?: string; exp: number };
 }

@@ -36,7 +36,7 @@ export interface VerifyResetPasswordTokenParams {
   token: string;
 }
 
-export async function verifyResetPasswordToken(params: VerifyResetPasswordTokenParams)  {
+export async function verifyResetPasswordToken(params: VerifyResetPasswordTokenParams) {
   return await axios.post('/api/reset-password/verify');
 }
 
@@ -47,5 +47,5 @@ export interface SetNewUserPasswordParams {
 }
 
 export async function setNewUserPassword(params: SetNewUserPasswordParams) {
-  return await axios.post('/api/reset-password/set-password')
+  return await axios.post('/api/reset-password/set-password');
 }

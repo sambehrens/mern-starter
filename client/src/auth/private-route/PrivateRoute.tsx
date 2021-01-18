@@ -8,7 +8,7 @@ export interface PrivateRouteProps extends RouteProps {
 }
 
 export function PrivateRoute({ component: Component, blockAccessTo = '', ...rest }: PrivateRouteProps) {
-  const {loggedInUser} = useAuth();
+  const { loggedInUser } = useAuth();
 
   return (
     <Route

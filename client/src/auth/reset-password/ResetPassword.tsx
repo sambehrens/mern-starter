@@ -49,7 +49,7 @@ export function ResetPassword() {
         <label>Password</label>
         <input
           id={'password'}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           value={password}
           autoFocus={true}
           name={'password'}
@@ -59,7 +59,7 @@ export function ResetPassword() {
         <label>Confirm Password</label>
         <input
           id={'password2'}
-          onChange={e => setPassword2(e.target.value)}
+          onChange={(e) => setPassword2(e.target.value)}
           value={password2}
           name={'password'}
           type={'password'}

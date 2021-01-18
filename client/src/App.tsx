@@ -15,8 +15,8 @@ import { LogoutButton } from './auth/login/LogoutButton';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${props => props.theme.backgroundColor.main};
-    color: ${props => props.theme.textColor.main};
+    background-color: ${(props) => props.theme.backgroundColor.main};
+    color: ${(props) => props.theme.textColor.main};
   }
 `;
 

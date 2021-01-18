@@ -16,7 +16,7 @@ export function Login() {
   const location = useLocation<{ from?: string } | undefined>();
   const history = useHistory();
 
-  const defaultPath = '/logged-in'
+  const defaultPath = '/logged-in';
 
   React.useEffect(() => {
     if (loggedInUser) {
@@ -27,17 +27,14 @@ export function Login() {
   function onSubmit(event: React.MouseEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    login({ email, password })
-      .catch((error: AxiosError) => {
-        setErrors(error.response?.data);
-      });
+    login({ email, password }).catch((error: AxiosError) => {
+      setErrors(error.response?.data);
+    });
   }
 
   return (
     <div>
-      <Link to={'/'}>
-        Back to landing page
-      </Link>
+      <Link to={'/'}>Back to landing page</Link>
       <div>
         <Header variant={1}>Log in</Header>
         <form onSubmit={onSubmit}>
@@ -62,7 +59,7 @@ export function Login() {
             autoComplete={'current-password'}
           />
           <div>{errors?.password}</div>
-          <input type={'submit'} value={'Log in'}/>
+          <input type={'submit'} value={'Log in'} />
         </form>
       </div>
       <div>

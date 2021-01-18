@@ -22,14 +22,12 @@ export function Signup() {
       password2,
     })
       .then(() => history.push('/login'))
-      .catch(errors => setErrors(errors.response.data));
+      .catch((errors) => setErrors(errors.response.data));
   }
 
   return (
     <div>
-      <Link to="/">
-        Back to landing page
-      </Link>
+      <Link to="/">Back to landing page</Link>
       <div>
         <Header variant={1}>Sign up</Header>
         <form onSubmit={onSubmit}>
@@ -70,7 +68,7 @@ export function Signup() {
             autoComplete={'new-password'}
           />
           <div>{errors?.password2}</div>
-          <input type={'submit'} value={'Sign up'}/>
+          <input type={'submit'} value={'Sign up'} />
         </form>
       </div>
     </div>
