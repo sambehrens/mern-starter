@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import { sendUserResetPasswordEmail } from '../../api/auth';
-import { Header } from '../../modules/Header';
 
 export function EnterEmail() {
   const [email, setEmail] = React.useState<string>('');
@@ -24,9 +23,9 @@ export function EnterEmail() {
 
   return (
     <div>
-      <Link to={'/login'}>Back to log in</Link>
+      <Link to="/login">Back to log in</Link>
       <div>
-        <Header variant={1}>Reset Password</Header>
+        <div>Reset Password</div>
         {emailSent ? (
           <div>
             <h2>Success</h2>
@@ -37,18 +36,10 @@ export function EnterEmail() {
           </div>
         ) : (
           <form onSubmit={onSubmit}>
-            <label>Email</label>
-            <input
-              id={'email'}
-              onChange={onChange}
-              value={email}
-              autoFocus={true}
-              name={'email'}
-              type={'email'}
-              autoComplete={'username'}
-            />
+            <label htmlFor="email">Email</label>
+            <input id="email" onChange={onChange} value={email} name="email" type="email" autoComplete="email" />
             <div>{errors.error}</div>
-            <input type={'submit'} value={'Send email'} />
+            <input type="submit" value="Send email" />
           </form>
         )}
       </div>

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import { setNewUserPassword, verifyResetPasswordToken } from '../../api/auth';
-import { Header } from '../../modules/Header';
 
 export function ResetPassword() {
   const [password, setPassword] = React.useState<string>('');
@@ -35,7 +34,7 @@ export function ResetPassword() {
       return (
         <div>
           Password reset successfully.{' '}
-          <Link to={'/login'} className={'link secondary'}>
+          <Link to="/login" className="link secondary">
             Return to log in page.
           </Link>
         </div>
@@ -46,34 +45,33 @@ export function ResetPassword() {
     }
     return (
       <form onSubmit={onSubmit}>
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
-          id={'password'}
+          id="password"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
-          autoFocus={true}
-          name={'password'}
-          type={'password'}
-          autoComplete={'new-password'}
+          name="password"
+          type="password"
+          autoComplete="new-password"
         />
-        <label>Confirm Password</label>
+        <label htmlFor="password2">Confirm Password</label>
         <input
-          id={'password2'}
+          id="password2"
           onChange={(e) => setPassword2(e.target.value)}
           value={password2}
-          name={'password'}
-          type={'password'}
-          autoComplete={'new-password'}
+          name="password"
+          type="password"
+          autoComplete="new-password"
         />
         <div>{errors.error}</div>
-        <input type={'submit'} value={'Save'} />
+        <input type="submit" value="Save" />
       </form>
     );
   }
 
   return (
     <div>
-      <Header variant={1}>Set New Password</Header>
+      <h1>Set New Password</h1>
       {getFormMarkup()}
     </div>
   );

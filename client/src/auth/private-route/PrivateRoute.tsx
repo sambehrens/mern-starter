@@ -23,7 +23,7 @@ export function PrivateRoute({ component: Component, blockAccessTo = '', ...rest
         }
 
         if (loggedInUser?.accessLevel === blockAccessTo) {
-          return <Redirect to={'/not-found'} />;
+          return <Redirect to="/not-found" />;
         }
 
         return (

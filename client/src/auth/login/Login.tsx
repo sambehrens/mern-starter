@@ -34,36 +34,35 @@ export function Login() {
 
   return (
     <div>
-      <Link to={'/'}>Back to landing page</Link>
+      <Link to="/">Back to landing page</Link>
       <div>
         <Header variant={1}>Log in</Header>
         <form onSubmit={onSubmit}>
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
           <input
-            id={'email'}
+            id="email"
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.currentTarget.value)}
             value={email}
-            autoFocus={true}
-            name={'email'}
-            type={'email'}
-            autoComplete={'username'}
+            name="email"
+            type="email"
+            autoComplete="email"
           />
           <div>{errors?.email}</div>
-          <label>Password</label>
+          <label htmlFor="password">Password</label>
           <input
-            id={'password'}
+            id="password"
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPassword(event.currentTarget.value)}
             value={password}
-            type={'password'}
-            name={'password'}
-            autoComplete={'current-password'}
+            type="password"
+            name="password"
+            autoComplete="current-password"
           />
           <div>{errors?.password}</div>
-          <input type={'submit'} value={'Log in'} />
+          <input type="submit" value="Log in" />
         </form>
       </div>
       <div>
-        <Link to={'/reset-password/enter-email'}>Forgot password?</Link>
+        <Link to="/reset-password/enter-email">Forgot password?</Link>
       </div>
     </div>
   );
