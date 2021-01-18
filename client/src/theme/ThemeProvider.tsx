@@ -2,7 +2,6 @@ import * as React from 'react';
 import { themes } from './themes';
 import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-components';
 import { ThemeKey } from '../types';
-import { useStickyPrimitiveState } from '../hooks/useStickyState';
 
 type ThemeContextType = [ThemeKey, React.Dispatch<ThemeKey>];
 
@@ -13,12 +12,26 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useStickyPrimitiveState<ThemeKey>(ThemeKey.light, 'theme');
+  const [theme, setTheme] = React.useState<ThemeKey>(
+    (): ThemeKey => {
+      const savedThemeValue: string | null = localStorage.getItem('theme');
+      const savedTheme: number = savedThemeValue ? Number(localStorage.getItem('theme')) : -1;
 
-  // Handle how you want to set and save theme here
+      const preferredColorScheme: ThemeKey = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? ThemeKey.dark
+        : ThemeKey.light;
+
+      return savedTheme in ThemeKey ? savedTheme : preferredColorScheme;
+    }
+  );
+
+  function userSetTheme(theme: ThemeKey) {
+    setTheme(theme);
+    window.localStorage.setItem('theme', theme.toString());
+  }
 
   return (
-    <ThemeContext.Provider value={[theme, setTheme]}>
+    <ThemeContext.Provider value={[theme, userSetTheme]}>
       <StyledComponentsThemeProvider theme={themes[theme]}>{children}</StyledComponentsThemeProvider>
     </ThemeContext.Provider>
   );
