@@ -1,4 +1,4 @@
-# Mern Starter Project
+# Mern Starter Project 
 
 This should provide you with a working app with auth and theming all set up.
 
@@ -8,18 +8,32 @@ I do not guarantee that this will work without issues though, so make sure to do
 
 If you do find a problem, please submit an issue.
 
+## Stack
+
+*in no particular order*
+
+- TypeScript - All client code is written in TypeScript.
+- React - The client code is written in the React.js framework.
+- Node.js - Server side JS engine.
+- MongoDB - For storing data.
+- Mongoose - For interacting with MongoDB.
+- SES (AWS Simple Email Service) - For sending reset password emails.
+- Express - Server.
+
+Check both `package.json` and `client/package.json` for a full list of dependencies.
+
 ## Setup for Development
 
-### Ensure that you have npm and node installed
+### Install Node and npm
 
-If you are not sure if you do, type `node -v`
+If you are not sure if you have them installed or not, type `node -v`
 and `npm -v`, and it will either say `command not found`
 or tell you a version number.
 
 If any of the above are not installed, using homebrew,
 type `brew install node`.
 
-Installing node will also install npm
+Installing node will also install npm.
 
 ### Clone the repository onto your computer
 
@@ -46,6 +60,18 @@ module.exports = {
   mongoURI: 'mongodb+srv://mern-starter:<password>@cluster0.ebdpy.mongodb.net/<dbname>?retryWrites=true&w=majority',
   jwtKey: '<secure key>',
 };
+```
+
+### Add AWS Credentials
+
+*for SES*
+
+Add `credentials` file in `~/.aws` with these contents:
+
+```
+[default]
+aws_access_key_id = <YOUR KEY>
+aws_secret_access_key = <YOUR SECRET ACCESS KEY>
 ```
 
 You can also start a local mongo database and use that key instead.
