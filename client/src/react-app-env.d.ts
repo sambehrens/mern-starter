@@ -1,5 +1,5 @@
 /// <reference types="react-scripts" />
-import { ThemeKey, UserAccessLevel } from './types';
+import { ThemeKey } from './types';
 import { JwtDecodeOptions } from 'jwt-decode';
 
 // and extend them!
